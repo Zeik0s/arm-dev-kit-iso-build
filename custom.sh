@@ -22,7 +22,7 @@ debootstrap \
     --variant=minbase \
     $RELEASE \
     $WORK_DIR/chroot \
-    http://at.archive.ubuntu.com/ubuntu/
+    http://ports.ubuntu.com/ubuntu-ports/
 
 mount --bind /dev $WORK_DIR/chroot/dev
 mount --bind /run $WORK_DIR/chroot/run
