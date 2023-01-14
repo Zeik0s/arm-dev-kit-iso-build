@@ -105,17 +105,13 @@ EOF
 dpkg-reconfigure network-manager
 
 # install everything else
-apt-get -yq install \
-#    ubuntu-gnome-desktop \
-#    ubuntu-gnome-wallpapers \
-#    clamav-daemon \
+apt-get -yq install  \
     apt-transport-https \
     curl \
     vim \
     htop \
     lm-sensors \
     neofetch \
-#    chromium-browser \
     less \
     gdisk \
     gparted
