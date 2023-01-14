@@ -12,7 +12,7 @@ fi
 # Set the Ubuntu release here
 RELEASE=${2:-kinetic}
 
-WORK_DIR=$HOME/$RELEASE-custom
+WORK_DIR=$PWD/$RELEASE-custom
 
 mkdir $WORK_DIR
 
@@ -22,7 +22,7 @@ debootstrap \
     --variant=minbase \
     $RELEASE \
     $WORK_DIR/chroot \
-    http://at.archiveubuntu.com/ubuntu/
+    http://at.archive.ubuntu.com/ubuntu/
 
 mount --bind /dev $WORK_DIR/chroot/dev
 mount --bind /run $WORK_DIR/chroot/run
