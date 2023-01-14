@@ -22,7 +22,7 @@ debootstrap \
     --variant=minbase \
     $RELEASE \
     $WORK_DIR/chroot \
-    http://ports.ubuntu.com/ubuntu-ports/
+    http://at.archiveubuntu.com/ubuntu/
 
 mount --bind /dev $WORK_DIR/chroot/dev
 mount --bind /run $WORK_DIR/chroot/run
@@ -32,7 +32,7 @@ mount --bind /run $WORK_DIR/chroot/run
 cp $KERNEL $WORK_DIR/chroot/
 
 # copy modules specific to Lenovo ThinkPad X13s
-cp $PWD/modules_x13s $WORK_DIR/chroot/
+#cp $PWD/modules_x13s $WORK_DIR/chroot/
 
 # copy initramfs-tools hook for platform firmware files
 cp $PWD/qcom-soc-firmware $WORK_DIR/chroot/
@@ -78,7 +78,7 @@ insmod all_video
 set default="0"
 set timeout=30
 
-menuentry "Ubuntu $RELEASE live - Lenovo ThinkPad X13s" {
+menuentry "Ubuntu $RELEASE live - Microsoft ARM Developer Kit" {
     linux /casper/vmlinuz boot=casper pd_ignore_unused clk_ignore_unused modprobe.blacklist=msm nopersistent toram loglevel=9 ---
     initrd /casper/initrd
 }
@@ -143,7 +143,7 @@ mkdir $WORK_DIR/image/isolinux/dtb
 #cp $WORK_DIR/chroot/usr/lib/linux-image-*/apple/*.dtb $WORK_DIR/image/isolinux/dtb
 #cp $WORK_DIR/chroot/usr/lib/linux-image-*/apple/*.dtb $WORK_DIR/image/isolinux/dtb
 #cp $WORK_DIR/chroot/usr/lib/linux-image-*/apple/*.dtb $WORK_DIR/image/isolinux/dtb
-cp $WORK_DIR/chroot/usr/lib/linux-image-*/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb $WORK_DIR/image/isolinux/dtb/f249803d-0d95-54f3-a28f-f26c14a03f3b.dtb
+cp $WORK_DIR/chroot/usr/lib/linux-image-*/qcom/sc8280xp-microsoft-dev-kit-2023.dtb $WORK_DIR/image/isolinux/dtb/f249803d-0d95-54f3-a28f-f26c14a03f3b.dtb
 
 # copy kernel
 cp $WORK_DIR/chroot/boot/vmlinuz-* $WORK_DIR/image/casper/vmlinuz
